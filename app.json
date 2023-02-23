@@ -24,10 +24,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.exponent.eascustombuildsexample"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b06749c9-fe1e-481a-a655-70b6d26aa5d2"
+      }
+    },
+    "owner": "exponent"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "cli": {
+    "version": ">= 3.7.0"
+  },
+  "build": {
+    "test": {
+      "android": {
+        "config": "test.yml"
+      }
+    }
+  }
+}
