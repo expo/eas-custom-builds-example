@@ -7,6 +7,11 @@
       "android": {
         "config": "test.yml"
       }
+    },
+    "demo": {
+      "android": {
+        "config": "demo.yml"
+      }
     }
   }
 }
