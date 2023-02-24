@@ -12,6 +12,15 @@
       "android": {
         "config": "demo.yml"
       }
+    },
+    "vars": {
+      "env": {
+        "TEST1": "abc123",
+        "TEST2": "def456"
+      },
+      "android": {
+        "config": "vars.yml"
+      }
     }
   }
 }

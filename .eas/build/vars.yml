@@ -1,0 +1,5 @@
+build:
+  name: Can use environment vars from eas.json
+  steps:
+    - run: echo $TEST1
+    - run: echo $TEST2
