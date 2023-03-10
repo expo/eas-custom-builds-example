@@ -1,0 +1,13 @@
+build:
+  name: Upload artifacts
+  steps:
+    - run:
+        name: Prepare application archive
+        command: |
+          echo "Preparing application archive..."
+          upload-artifact fixtures/app-debug.apk
+    - run:
+        name: Prepare build artifact
+        command: |
+          echo "Preparing build artifact..."
+          upload-artifact --type build-artifact assets/icon.png
