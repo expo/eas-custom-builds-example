@@ -1,13 +1,14 @@
 build:
   name: Upload artifacts
   steps:
-    - run:
-        name: Prepare application archive
-        command: |
-          echo "Preparing application archive..."
-          upload-artifact fixtures/app-debug.apk
-    - run:
-        name: Prepare build artifact
-        command: |
-          echo "Preparing build artifact..."
-          upload-artifact --type build-artifact assets/icon.png
+    - eas/upload_artifact:
+        id: application_archive_upload
+        name: Upload application archive
+        inputs:
+          path: fixtures/app-debug.apk
+    - eas/upload_artifact:
+        id: build_artifact_upload
+        name: Upload build artifact
+        inputs:
+          type: build-artifact
+          path: assets/icon.png
