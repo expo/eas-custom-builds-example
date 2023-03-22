@@ -2,12 +2,10 @@ build:
   name: Upload artifacts
   steps:
     - eas/upload_artifact:
-        id: application_archive_upload
         name: Upload application archive
         inputs:
           path: fixtures/app-debug.apk
     - eas/upload_artifact:
-        id: build_artifact_upload
         name: Upload build artifact
         inputs:
           type: build-artifact
