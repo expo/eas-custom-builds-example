@@ -7,6 +7,9 @@ build:
     - say_hi:
         inputs:
           name: Szymon
+    - say_hi:
+        inputs:
+          greeting: Hello
     - say_hi_wojtek
     - random:
         id: random_number
@@ -16,10 +19,14 @@ build:
 
 functions:
   say_hi:
-    name: Hi!
+    name: Say Hi!
     inputs:
-      - name
-    command: echo "Hi, ${ inputs.name }!"
+      - name: name
+        default_value: Brent
+      - name: greeting
+        default_value: Hi
+        allowed_values: [Hi, Hello]
+    command: echo "${ inputs.greeting }, ${ inputs.name }!"
   say_hi_wojtek:
     name: Hi, Wojtek!
     command: echo "Hi, Wojtek!"
