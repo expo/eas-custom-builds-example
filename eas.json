@@ -32,6 +32,11 @@
       "android": {
         "config": "functions.yml"
       }
+    },
+    "import": {
+      "android": {
+        "config": "import.yml"
+      }
     }
   }
 }

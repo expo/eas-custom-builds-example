@@ -1,0 +1,15 @@
+import:
+  - common/functions.yml
+
+build:
+  name: Import Demo
+  steps:
+    - say_hi:
+        inputs:
+          name: Dominik
+    - say_hi:
+        inputs:
+          name: Szymon
+    - say_hi:
+        inputs:
+          name: Brent
