@@ -37,6 +37,22 @@
       "android": {
         "config": "import.yml"
       }
+    },
+    "functionsInvalidPlatform": {
+      "android": {
+        "config": "build-darwin-functions.yml"
+      },
+      "ios": {
+        "config": "build-linux-functions.yml"
+      }
+    },
+    "functionsValidPlatform": {
+      "ios": {
+        "config": "build-darwin-functions.yml"
+      },
+      "android": {
+        "config": "build-linux-functions.yml"
+      }
     }
   }
 }
