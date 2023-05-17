@@ -19,14 +19,10 @@ build:
 
 functions:
   say_hi:
-    name: Say Hi!
+    name: Hi!
     inputs:
-      - name: name
-        default_value: Brent
-      - name: greeting
-        default_value: Hi
-        allowed_values: [Hi, Hello]
-    command: echo "${ inputs.greeting }, ${ inputs.name }!"
+      - name
+    command: echo "Hi, ${ inputs.name }!"
   say_hi_wojtek:
     name: Hi, Wojtek!
     command: echo "Hi, Wojtek!"
@@ -37,3 +33,13 @@ functions:
   print:
     inputs: [value]
     command: echo "${ inputs.value }"
+  say_hi_2:
+    name: Hi!
+    supported_platforms: [darwin, linux]
+    inputs:
+      - name: greeting
+        default_value: Hi
+        allowed_values: [Hi, Hello]
+      - name: name
+        default_value: Brent
+    command: echo "${ inputs.greeting }, ${ inputs.name }!"

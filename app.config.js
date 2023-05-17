@@ -19,6 +19,7 @@ module.exports = {
     assetBundlePatterns: ['**/*'],
     ios: {
       supportsTablet: true,
+      bundleIdentifier: 'com.exponent.eascustombuildsexample',
     },
     android: {
       adaptiveIcon: {
