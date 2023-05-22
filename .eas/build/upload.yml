@@ -1,6 +1,7 @@
 build:
   name: Upload artifacts
   steps:
+    - eas/checkout
     - eas/upload_artifact:
         name: Upload application archive
         inputs:
