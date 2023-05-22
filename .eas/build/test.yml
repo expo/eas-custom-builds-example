@@ -1,6 +1,7 @@
 build:
   name: Run tests
   steps:
+    - eas/checkout
     - run:
         name: Install dependencies
         command: npm install

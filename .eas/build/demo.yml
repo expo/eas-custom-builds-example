@@ -1,6 +1,7 @@
 build:
   name: Demo
   steps:
+    - eas/checkout
     - run:
         name: List assets
         working_directory: assets
