@@ -2,9 +2,8 @@ build:
   name: Run tests
   steps:
     - eas/checkout
-    - run:
-        name: Install dependencies
-        command: npm install
+    - eas/use_npm_token
+    - eas/install_node_modules
     - run:
         name: Run tests
         command: |
