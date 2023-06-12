@@ -53,6 +53,11 @@
       "android": {
         "config": "build-linux-functions.yml"
       }
+    },
+    "simpleBuild": {
+      "android": {
+        "config": "simple-android-build.yml"
+      }
     }
   }
 }

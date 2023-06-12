@@ -1,0 +1,12 @@
+build:
+  name: Run a simple Android build
+  steps:
+    - eas/checkout
+    - eas/use_npm_token
+    - eas/install_node_modules
+    - eas/prebuild
+    - eas/build_react_native_app
+    - eas/upload_artifact:
+        inputs:
+          type: application-archive
+          path: ./android/app/build/outputs/apk/release/app-release.apk
