@@ -55,6 +55,7 @@
       }
     },
     "simpleBuild": {
+      "distribution": "internal",
       "android": {
         "config": "simple-android-build.yml"
       }
