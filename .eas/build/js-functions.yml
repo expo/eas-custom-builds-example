@@ -1,0 +1,24 @@
+build:
+  name: JS Functions Demo
+  steps:
+    - say_hi_from_js:
+        inputs:
+          name: Dominik
+    - custom_run_gradle
+
+functions:
+  say_hi:
+    name: Hi!
+    inputs:
+      - name
+    command: echo "Hi, ${ inputs.name }!"
+  say_hi_from_js:
+    name: Hi from JS
+    inputs:
+      - name
+    path: ./js-functions/say_hi.js
+  custom_run_gradle:
+    name: Run Gradle
+    path: ./js-functions/run_gradle.ts
+    # or mybe we should point directlly to compiled js
+    # path: ./js-functions/dist/run_gradle.js

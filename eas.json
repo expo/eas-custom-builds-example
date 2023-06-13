@@ -59,6 +59,12 @@
       "android": {
         "config": "simple-android-build.yml"
       }
+    },
+    "js": {
+      "distribution": "internal",
+      "android": {
+        "config": "js-functions.yml"
+      }
     }
   }
 }

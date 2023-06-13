@@ -1,0 +1,14 @@
+{
+  "name": "js-functions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "run_gradle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@expo/spawn-async": "^1.7.2"
+  }
+}
