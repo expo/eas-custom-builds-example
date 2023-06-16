@@ -9,13 +9,18 @@ build:
           name: Szymon
     - say_hi:
         inputs:
-          greeting: Hello
+          name: Hello
     - say_hi_wojtek
     - random:
         id: random_number
     - print:
         inputs:
           value: ${ steps.random_number.value }
+    - say_hi_2:
+        inputs:
+          name: Dominik
+          boolean_value: true
+          number_value: 3
 
 functions:
   say_hi:
@@ -41,5 +46,8 @@ functions:
         default_value: Hi
         allowed_values: [Hi, Hello]
       - name: name
-        default_value: Brent
+      - name: boolean_value
+        type: boolean
+      - name: number_value
+        type: number
     command: echo "${ inputs.greeting }, ${ inputs.name }!"
