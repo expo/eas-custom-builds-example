@@ -1,0 +1,13 @@
+build:
+  name: Run a simple iOS build
+  steps:
+    - eas/checkout
+    - eas/use_npm_token
+    - eas/install_node_modules
+    - eas/prebuild
+    - run:
+        name: Install pods
+        working_directory: ./ios
+        command: pod install
+    - eas/build_react_native_app
+    - eas/find_and_upload_build_artifacts

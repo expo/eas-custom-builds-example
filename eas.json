@@ -58,6 +58,10 @@
       "distribution": "internal",
       "android": {
         "config": "simple-android-build.yml"
+      },
+      "ios": {
+        "simulator": true,
+        "config": "simple-ios-build.yml"
       }
     }
   }
