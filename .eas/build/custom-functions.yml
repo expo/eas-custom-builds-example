@@ -1,0 +1,53 @@
+build:
+  name: Custom JS/TS functions
+  steps:
+    - my_js_fn:
+        inputs:
+          name: Dominik
+          num: 3
+          obj:
+            foo: bar
+    - my_ts_fn:
+        id: my_ts_fn_id
+        inputs:
+          name: Wojtek
+          num: 4
+          obj:
+            foo: baz
+    - run:
+        inputs:
+          name: ${ steps.my_ts_fn_id.name }
+          num: ${ steps.my_ts_fn_id.num }
+          obj: ${ steps.my_ts_fn_id.obj }
+        name: Verify if the outputs and env set
+        command: |
+          echo ${ inputs.name }
+          echo ${ inputs.num }
+          echo ${ inputs.obj }
+          echo $MY_ENV_VAR
+
+
+functions:
+  my_js_fn:
+    name: my-js-fn
+    inputs:
+      - name: name
+      - name: num
+        type: number
+      - name: obj
+        type: json
+    path: ./test-custom-js-function
+
+  my_ts_fn:
+    name: my-ts-fn
+    inputs:
+      - name: name
+      - name: num
+        type: number
+      - name: obj
+        type: json
+    outputs:
+      - name: name
+      - name: num
+      - name: obj
+    path: ./test-custom-ts-function

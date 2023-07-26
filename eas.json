@@ -63,6 +63,14 @@
         "simulator": true,
         "config": "simple-ios-build.yml"
       }
+    },
+    "customFunctions": {
+      "android": {
+        "config": "custom-function.yml"
+      },
+      "ios": {
+        "config": "custom-function.yml"
+      }
     }
   }
 }
