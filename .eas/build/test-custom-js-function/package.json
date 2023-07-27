@@ -1,0 +1,16 @@
+{
+  "name": "test-custom-js-function",
+  "version": "1.0.0",
+  "main": "./build/index.js",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "devDependencies": {
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9"
+  },
+  "scripts": {
+    "build": "babel src --out-dir build"
+  }
+}
