@@ -66,10 +66,10 @@
     },
     "customFunctions": {
       "android": {
-        "config": "custom-function.yml"
+        "config": "custom-functions.yml"
       },
       "ios": {
-        "config": "custom-function.yml"
+        "config": "custom-functions.yml"
       }
     }
   }
