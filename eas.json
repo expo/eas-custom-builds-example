@@ -5,37 +5,37 @@
   "build": {
     "production": {},
     "test": {
-      "distribution": "internal",
       "android": {
-        "config": "test.yml"
+        "config": "test.yml",
+        "withoutCredentials": true
       }
     },
     "demo": {
-      "distribution": "internal",
       "android": {
-        "config": "demo.yml"
+        "config": "demo.yml",
+        "withoutCredentials": true
       }
     },
     "vars": {
-      "distribution": "internal",
       "env": {
         "TEST1": "abc123",
         "TEST2": "def456"
       },
       "android": {
-        "config": "vars.yml"
+        "config": "vars.yml",
+        "withoutCredentials": true
       }
     },
     "upload": {
-      "distribution": "internal",
       "android": {
-        "config": "upload.yml"
+        "config": "upload.yml",
+        "withoutCredentials": true
       }
     },
     "functions": {
-      "distribution": "internal",
       "android": {
-        "config": "functions.yml"
+        "config": "functions.yml",
+        "withoutCredentials": true
       }
     },
     "import": {
@@ -45,9 +45,9 @@
       }
     },
     "functionsInvalidPlatform": {
-      "distribution": "internal",
       "android": {
-        "config": "build-darwin-functions.yml"
+        "config": "build-darwin-functions.yml",
+        "withoutCredentials": true
       },
       "ios": {
         "simulator": true,
@@ -55,19 +55,19 @@
       }
     },
     "functionsValidPlatform": {
-      "distribution": "internal",
       "ios": {
         "simulator": true,
         "config": "build-darwin-functions.yml"
       },
       "android": {
-        "config": "build-linux-functions.yml"
+        "config": "build-linux-functions.yml",
+        "withoutCredentials": true
       }
     },
     "simpleBuild": {
-      "distribution": "internal",
       "android": {
-        "config": "simple-android-build.yml"
+        "config": "simple-android-build.yml",
+        "withoutCredentials": true
       },
       "ios": {
         "simulator": true,
@@ -75,9 +75,9 @@
       }
     },
     "customFunctions": {
-      "distribution": "internal",
       "android": {
-        "config": "custom-functions.yml"
+        "config": "custom-functions.yml",
+        "withoutCredentials": true
       },
       "ios": {
         "simulator": true,
