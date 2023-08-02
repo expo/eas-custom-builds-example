@@ -5,16 +5,19 @@
   "build": {
     "production": {},
     "test": {
+      "distribution": "internal",
       "android": {
         "config": "test.yml"
       }
     },
     "demo": {
+      "distribution": "internal",
       "android": {
         "config": "demo.yml"
       }
     },
     "vars": {
+      "distribution": "internal",
       "env": {
         "TEST1": "abc123",
         "TEST2": "def456"
@@ -24,30 +27,37 @@
       }
     },
     "upload": {
+      "distribution": "internal",
       "android": {
         "config": "upload.yml"
       }
     },
     "functions": {
+      "distribution": "internal",
       "android": {
         "config": "functions.yml"
       }
     },
     "import": {
+      "distribution": "internal",
       "android": {
         "config": "import.yml"
       }
     },
     "functionsInvalidPlatform": {
+      "distribution": "internal",
       "android": {
         "config": "build-darwin-functions.yml"
       },
       "ios": {
+        "simulator": true,
         "config": "build-linux-functions.yml"
       }
     },
     "functionsValidPlatform": {
+      "distribution": "internal",
       "ios": {
+        "simulator": true,
         "config": "build-darwin-functions.yml"
       },
       "android": {
@@ -65,11 +75,18 @@
       }
     },
     "customFunctions": {
+      "distribution": "internal",
       "android": {
         "config": "custom-functions.yml"
       },
       "ios": {
+        "simulator": true,
         "config": "custom-functions.yml"
+      }
+    },
+    "build": {
+      "android": {
+        "config": "build-android.yml"
       }
     }
   }
