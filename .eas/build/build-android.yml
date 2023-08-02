@@ -13,11 +13,14 @@ build:
 
     - utils/inject_android_credentials
 
-    - utils/configure_android_versions
+    - utils/configure_android_version:
+        inputs:
+          version_name: 1.2.3
+          version_code: 123
 
     - run:
         name: Build Android app
         working_directory: ./android
-        command: gradlew :app:bundleRelease
+        command: ./gradlew :app:bundleRelease
 
     - eas/find_and_upload_build_artifacts
