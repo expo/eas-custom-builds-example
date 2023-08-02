@@ -6,12 +6,14 @@
     "production": {},
     "test": {
       "android": {
-        "config": "test.yml"
+        "config": "test.yml",
+        "withoutCredentials": true
       }
     },
     "demo": {
       "android": {
-        "config": "demo.yml"
+        "config": "demo.yml",
+        "withoutCredentials": true
       }
     },
     "vars": {
@@ -20,44 +22,52 @@
         "TEST2": "def456"
       },
       "android": {
-        "config": "vars.yml"
+        "config": "vars.yml",
+        "withoutCredentials": true
       }
     },
     "upload": {
       "android": {
-        "config": "upload.yml"
+        "config": "upload.yml",
+        "withoutCredentials": true
       }
     },
     "functions": {
       "android": {
-        "config": "functions.yml"
+        "config": "functions.yml",
+        "withoutCredentials": true
       }
     },
     "import": {
+      "distribution": "internal",
       "android": {
         "config": "import.yml"
       }
     },
     "functionsInvalidPlatform": {
       "android": {
-        "config": "build-darwin-functions.yml"
+        "config": "build-darwin-functions.yml",
+        "withoutCredentials": true
       },
       "ios": {
+        "simulator": true,
         "config": "build-linux-functions.yml"
       }
     },
     "functionsValidPlatform": {
       "ios": {
+        "simulator": true,
         "config": "build-darwin-functions.yml"
       },
       "android": {
-        "config": "build-linux-functions.yml"
+        "config": "build-linux-functions.yml",
+        "withoutCredentials": true
       }
     },
     "simpleBuild": {
-      "distribution": "internal",
       "android": {
-        "config": "simple-android-build.yml"
+        "config": "simple-android-build.yml",
+        "withoutCredentials": true
       },
       "ios": {
         "simulator": true,
@@ -66,10 +76,17 @@
     },
     "customFunctions": {
       "android": {
-        "config": "custom-functions.yml"
+        "config": "custom-functions.yml",
+        "withoutCredentials": true
       },
       "ios": {
+        "simulator": true,
         "config": "custom-functions.yml"
+      }
+    },
+    "build": {
+      "android": {
+        "config": "build-android.yml"
       }
     }
   }
