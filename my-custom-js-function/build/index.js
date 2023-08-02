@@ -1,0 +1,1 @@
+(()=>{"use strict";if(typeof __nccwpck_require__!=="undefined")__nccwpck_require__.ab=__dirname+"/";var e={};(()=>{var t=e;Object.defineProperty(t,"__esModule",{value:true});t["default"]=void 0;function myFunction(e,{inputs:t,outputs:u,env:r}){e.logger.info("Hello from my JavaScript function!")}var u=myFunction;t["default"]=u})();module.exports=e})();
