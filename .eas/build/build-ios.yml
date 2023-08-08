@@ -1,0 +1,38 @@
+build:
+  name: Customized iOS build example
+  steps:
+    - eas/checkout
+
+    - run:
+        name: Install dependencies
+        command: npm install
+
+    - utils/resolve_apple_team_id_from_credentials:
+        id: resolve_apple_team_id_from_credentials
+
+    - run:
+        inputs:
+            name: apple_team_id
+            value: ${ steps.resolve_apple_team_id_from_credentials.apple_team_id }
+        name: Run expo prebuild
+        command: APPLE_TEAM_ID=${ inputs.apple_team_id } npx expo prebuild --no-install --platform ios
+
+    - run:
+        name: Install pods
+        working_directory: ./ios
+        command: pod install
+
+    - utils/configure_ios_credentials
+
+    - utils/configure_ios_version:
+        inputs:
+          app_version: 1.2.3
+          build_number: '123'
+
+    - utils/generate_gymfile_from_template:
+        inputs:
+            credentials: ${ eas.job.secrets.buildCredentials }
+
+    - utils/run_fastlane
+
+    - eas/find_and_upload_build_artifacts
