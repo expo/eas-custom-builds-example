@@ -36,12 +36,22 @@
       "withoutCredentials": true,
       "config": "custom-functions.yml"
     },
-    "credentialsBuild": {
+    "productionBuild": {
       "android": {
-        "config": "build-android.yml"
+        "config": "production-build-android.yml"
       },
       "ios": {
-        "config": "build-ios.yml"
+        "config": "production-build-ios.yml"
+      }
+    },
+    "developmentBuild": {
+      "distribution": "internal",
+      "android": {
+        "config": "development-build-android.yml"
+      },
+      "ios": {
+        "simulator": true,
+        "config": "development-build-ios.yml"
       }
     }
   }
