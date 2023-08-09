@@ -1,5 +1,5 @@
 build:
-  name: Customized Android Play Store build example
+  name: Customized Android Play Store build example with EAS Update
   steps:
     - eas/checkout
 
@@ -12,6 +12,8 @@ build:
             CI: '1'
         name: Run expo prebuild
         command: npx expo prebuild --no-install --platform android
+
+    - eas/configure_eas_update
 
     - eas/inject_android_credentials
 

@@ -21,6 +21,13 @@ build:
           name: Dominik
           boolean_value: true
           number_value: 3
+          some_object:
+            key: value
+            key2:
+              - value2
+              - value3
+              - 3
+            key3: true
 
 functions:
   say_hi:
@@ -50,4 +57,6 @@ functions:
         type: boolean
       - name: number_value
         type: number
-    command: echo "${ inputs.greeting }, ${ inputs.name }!"
+      - name: some_object
+        type: json
+    command: echo "${ inputs.greeting }, ${ inputs.name }, ${ inputs.boolean_value }, ${ inputs.number_value }, ${ inputs.some_object }!"

@@ -1,9 +1,7 @@
 build:
-  name: development iOS build
+  name: Simple simulator iOS build
   steps:
     - eas/checkout
-
-    - eas/use_npm_token
 
     - eas/install_node_modules
 
@@ -14,8 +12,8 @@ build:
         working_directory: ./ios
         command: pod install
 
-    - utils/generate_gymfile_from_template
+    - eas/generate_gymfile_from_template
 
-    - utils/run_fastlane
+    - eas/run_fastlane
 
     - eas/find_and_upload_build_artifacts
