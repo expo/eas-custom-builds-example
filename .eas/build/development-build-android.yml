@@ -1,14 +1,14 @@
 build:
-  name: development Android build
+  name: Simple internal distribution Android build
   steps:
     - eas/checkout
-
-    - eas/use_npm_token
 
     - eas/install_node_modules
 
     - eas/prebuild
 
-    - utils/run_gradle
+    - eas/inject_android_credentials
+
+    - eas/run_gradle
 
     - eas/find_and_upload_build_artifacts

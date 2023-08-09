@@ -3,3 +3,9 @@ build:
   steps:
     - run: echo $TEST1
     - run: echo $TEST2
+    - run:
+        env:
+          TEST3: test3
+        command: echo $TEST3
+    - run:
+        command: echo $MY_SECRET_VAR

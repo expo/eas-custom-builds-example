@@ -1,5 +1,5 @@
 build:
-  name: Customized iOS App Store build example
+  name: Customized iOS App Store build with EAS Update example
   steps:
     - eas/checkout
 
@@ -23,6 +23,8 @@ build:
         name: Install pods
         working_directory: ./ios
         command: pod install
+
+    - eas/configure_eas_update
 
     - eas/configure_ios_credentials
 
