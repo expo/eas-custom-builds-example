@@ -62,6 +62,15 @@
       "ios": {
         "config": "eas-update-build-ios.yml"
       }
+    },
+    "remoteVersionManagementBuild": {
+      "autoIncrement": true,
+      "android": {
+        "config": "remote-version-management-build-android.yml"
+      },
+      "ios": {
+        "config": "remote-version-management-build-ios.yml"
+      }
     }
   }
 }
