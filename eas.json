@@ -1,9 +1,9 @@
 {
   "cli": {
-    "version": ">= 3.7.0"
+    "version": ">= 3.7.0",
+    "appVersionSource": "remote"
   },
   "build": {
-    "production": {},
     "test": {
       "withoutCredentials": true,
       "config": "test.yml"
@@ -52,6 +52,24 @@
       "ios": {
         "simulator": true,
         "config": "development-build-ios.yml"
+      }
+    },
+    "easUpdateBuild": {
+      "channel": "prod",
+      "android": {
+        "config": "eas-update-build-android.yml"
+      },
+      "ios": {
+        "config": "eas-update-build-ios.yml"
+      }
+    },
+    "remoteVersionManagementBuild": {
+      "autoIncrement": true,
+      "android": {
+        "config": "remote-version-management-build-android.yml"
+      },
+      "ios": {
+        "config": "remote-version-management-build-ios.yml"
       }
     }
   }
