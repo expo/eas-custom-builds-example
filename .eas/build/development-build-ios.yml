@@ -17,3 +17,30 @@ build:
     - eas/run_fastlane
 
     - eas/find_and_upload_build_artifacts
+
+    - eas/install_maestro:
+        inputs:
+          maestro_version: 1.35.0
+
+    - eas/start_ios_simulator
+
+    - run:
+        name: Install app to running simulator
+        command: |
+          for APP_PATH in ios/build/Build/Products/*simulator/*.app; do
+            xcrun simctl install booted $APP_PATH
+          done
+
+    - run:
+        name: Run Maestro
+        env:
+          MAESTRO_DRIVER_STARTUP_TIMEOUT: "120000"
+        command: |
+          maestro test maestro/flow.yaml
+
+    - eas/upload_artifact:
+        name: Upload test artifact
+        if: ${ always() }
+        inputs:
+          type: build-artifact
+          path: /Users/expo/.maestro/tests
