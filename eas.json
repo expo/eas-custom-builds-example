@@ -47,6 +47,7 @@
     "developmentBuild": {
       "distribution": "internal",
       "android": {
+        "image": "ubuntu-22.04-jdk-11-ndk-r21e",
         "config": "development-build-android.yml"
       },
       "ios": {
