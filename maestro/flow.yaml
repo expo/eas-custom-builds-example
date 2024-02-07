@@ -1,0 +1,4 @@
+appId: com.exponent.eascustombuildsexample
+---
+- launchApp
+- assertVisible: "Open up App.js to start working on your app!"
