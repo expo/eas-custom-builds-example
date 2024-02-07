@@ -7,8 +7,6 @@ build:
 
     - eas/prebuild
 
-    - eas/inject_android_credentials
-
     - eas/run_gradle
 
     - eas/find_and_upload_build_artifacts
