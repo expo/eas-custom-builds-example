@@ -11,6 +11,10 @@ build:
 
     - eas/find_and_upload_build_artifacts
 
+    - eas/run_gradle:
+        inputs:
+          command: ":app:assembleRelease"
+
     - eas/install_maestro:
         inputs:
           maestro_version: 1.35.0
