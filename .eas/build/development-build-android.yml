@@ -12,15 +12,16 @@ build:
     - eas/find_and_upload_build_artifacts
 
     - eas/install_maestro:
-            inputs:
-              maestro_version: 1.35.0
+        inputs:
+          maestro_version: 1.35.0
 
     - eas/start_android_emulator
 
     - run:
         name: Install app to running simulator
         command: |
-          for APP_PATH in android/app/build/outputs/**/*.{apk,aab}; do
+          shopt -s globstar
+          for APP_PATH in android/app/build/outputs/**/*.apk; do
             adb install $APP_PATH
           done
 
