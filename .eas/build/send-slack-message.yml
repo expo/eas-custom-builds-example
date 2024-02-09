@@ -1,7 +1,8 @@
 build:
   name: Slack your team when build completes
   steps:
-    - eas/checkout
+    # For the purpose of the example-test we don't need to do the actual build.
+    # - eas/build
 
     - eas/send_slack_message:
         name: Send Slack message to a given webhook URL
