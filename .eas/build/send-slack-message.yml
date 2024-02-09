@@ -1,0 +1,21 @@
+build:
+  name: Demo
+  steps:
+    - eas/checkout
+    -
+    - eas/send_slack_message:
+        name: Send Slack message to a given webhook URL
+        inputs:
+          message: 'This is a test message to plain input URL'
+          slack_hook_url: 'https://hooks.slack.com/services/[rest_of_hook_url]'
+
+    - eas/send_slack_message:
+        name: Send Slack message to a default webhook URL from SLACK_HOOK_URL secret
+        inputs:
+          message: 'This is a test message to default URL from SLACK_HOOK_URL secret'
+
+    - eas/send_slack_message:
+        name: Send Slack message to a webhook URL from specified secret
+        inputs:
+          message: 'This is a test message to default URL from SLACK_HOOK_URL secret'
+          slack_hook_url: ${ eas.env.ANOTHER_SLACK_HOOK_URL }
