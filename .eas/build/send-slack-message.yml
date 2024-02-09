@@ -20,3 +20,15 @@ build:
         inputs:
           message: 'This is a test message to default URL from SLACK_HOOK_URL secret'
           slack_hook_url: ${ eas.env.ANOTHER_SLACK_HOOK_URL }
+
+    - eas/send_slack_message:
+        if: ${ failed() }
+        name: Send Slack message when the build fails
+        inputs:
+          message: 'This is a test message when build fails'
+
+    - eas/send_slack_message:
+        if: ${ success() }
+        name: Send Slack message when the build succeeds
+        inputs:
+          message: 'This is a test message when build succeeds'
