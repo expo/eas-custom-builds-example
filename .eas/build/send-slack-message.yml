@@ -1,5 +1,5 @@
 build:
-  name: Demo
+  name: Slack your team when build completes
   steps:
     - eas/checkout
 
