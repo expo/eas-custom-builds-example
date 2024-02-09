@@ -2,7 +2,7 @@ build:
   name: Demo
   steps:
     - eas/checkout
-    -
+
     - eas/send_slack_message:
         name: Send Slack message to a given webhook URL
         inputs:
