@@ -22,7 +22,7 @@ build:
           slack_hook_url: ${ eas.env.ANOTHER_SLACK_HOOK_URL }
 
     - eas/send_slack_message:
-        if: ${ failed() }
+        if: ${ failure() }
         name: Send Slack message when the build fails
         inputs:
           message: 'This is a test message when build fails'
