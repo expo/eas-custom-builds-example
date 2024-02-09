@@ -18,7 +18,7 @@ build:
     - eas/send_slack_message:
         name: Send Slack message to a webhook URL from specified secret
         inputs:
-          message: 'This is a test message to default URL from SLACK_HOOK_URL secret'
+          message: 'This is a test message to an URL from specified secret'
           slack_hook_url: ${ eas.env.ANOTHER_SLACK_HOOK_URL }
 
     - eas/send_slack_message:
