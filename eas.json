@@ -46,13 +46,12 @@
     },
     "developmentBuild": {
       "distribution": "internal",
+      "config": "development-build.yml",
       "android": {
-        "image": "ubuntu-22.04-jdk-11-ndk-r21e",
-        "config": "development-build-android.yml"
+        "image": "ubuntu-22.04-jdk-11-ndk-r21e"
       },
       "ios": {
         "simulator": true,
-        "config": "development-build-ios.yml",
         "image": "macos-ventura-13.4-xcode-14.3.1"
       }
     },
