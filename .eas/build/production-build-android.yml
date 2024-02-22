@@ -1,23 +1,19 @@
 build:
   name: Customized Android Play Store build example
   steps:
-    - eas/checkout
+    # Uses build profile configuration by default
+    # (Play Store, production build in this case).
+    - eas/build
 
+    # eas/build built and uploaded an AAB.
+    # We now run :assembleRelease to build an APK.
     - run:
-        name: Install dependencies
-        command: npm install
-
-    - run:
-        env:
-            CI: '1'
-        name: Run expo prebuild
-        command: npx expo prebuild --no-install --platform android
-
-    - eas/inject_android_credentials
-
-    - run:
-        name: Build Android app
+        name: Build Android app for Emulator
         working_directory: ./android
-        command: ./gradlew :app:bundleRelease
+        command: ./gradlew :app:assembleRelease
 
-    - eas/find_and_upload_build_artifacts
+    - eas/upload_artifact:
+        name: Upload Emulator app as build artifact
+        inputs:
+          type: build-artifact
+          path: android/app/build/outputs/**/*.apk

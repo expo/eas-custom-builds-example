@@ -1,35 +1,20 @@
 build:
   name: Customized iOS App Store build example
   steps:
-    - eas/checkout
+    # Uses build profile configuration by default
+    # (App Store, production build in this case).
+    - eas/build
 
-    - run:
-        name: Install dependencies
-        command: npm install
+    # Generate a Simulator Gymfile by running 
+    # generate_gymfile_from_template with no credentials
+    # provided.
+    - eas/generate_gymfile_from_template
 
-    - eas/resolve_apple_team_id_from_credentials:
-        id: resolve_apple_team_id_from_credentials
-
-    - run:
-        env:
-            CI: '1'
-        inputs:
-            name: apple_team_id
-            value: ${ steps.resolve_apple_team_id_from_credentials.apple_team_id }
-        name: Run expo prebuild
-        command: APPLE_TEAM_ID=${ inputs.apple_team_id } npx expo prebuild --no-install --platform ios
-
-    - run:
-        name: Install pods
-        working_directory: ./ios
-        command: pod install
-
-    - eas/configure_ios_credentials
-
-    - eas/generate_gymfile_from_template:
-        inputs:
-            credentials: ${ eas.job.secrets.buildCredentials }
-
+    # Build the iOS app
     - eas/run_fastlane
 
-    - eas/find_and_upload_build_artifacts
+    - eas/upload_artifact:
+        name: Upload Simulator app as build artifact
+        inputs:
+          type: build-artifact
+          path: ios/build/Build/Products/*simulator/*.app
