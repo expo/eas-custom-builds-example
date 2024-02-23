@@ -44,6 +44,14 @@
         "config": "production-build-ios.yml"
       }
     },
+    "productionAndDevelopmentBuildsTogether": {
+      "android": {
+        "config": "production-and-development-builds-together-android.yml"
+      },
+      "ios": {
+        "config": "production-and-development-builds-together-ios.yml"
+      }
+    },
     "developmentBuild": {
       "distribution": "internal",
       "android": {

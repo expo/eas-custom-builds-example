@@ -1,0 +1,20 @@
+build:
+  name: Build both a production and a development build (iOS)
+  steps:
+    # Uses build profile configuration by default
+    # (App Store, production build in this case).
+    - eas/build
+
+    # Generate a Simulator Gymfile by running 
+    # generate_gymfile_from_template with no credentials
+    # provided.
+    - eas/generate_gymfile_from_template
+
+    # Build the iOS app
+    - eas/run_fastlane
+
+    - eas/upload_artifact:
+        name: Upload Simulator app as build artifact
+        inputs:
+          type: build-artifact
+          path: ios/build/Build/Products/*simulator/*.app
