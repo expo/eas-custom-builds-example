@@ -1,0 +1,34 @@
+build:
+  name: Slack your team when build completes
+  steps:
+    # For the purpose of the example-test we don't need to do the actual build.
+    # - eas/build
+
+    - eas/send_slack_message:
+        name: Send Slack message to a given webhook URL
+        inputs:
+          message: 'This is a test message to plain input URL'
+          slack_hook_url: 'https://hooks.slack.com/services/[rest_of_hook_url]'
+
+    - eas/send_slack_message:
+        name: Send Slack message to a default webhook URL from SLACK_HOOK_URL secret
+        inputs:
+          message: 'This is a test message to default URL from SLACK_HOOK_URL secret'
+
+    - eas/send_slack_message:
+        name: Send Slack message to a webhook URL from specified secret
+        inputs:
+          message: 'This is a test message to a URL from specified secret'
+          slack_hook_url: ${ eas.env.ANOTHER_SLACK_HOOK_URL }
+
+    - eas/send_slack_message:
+        if: ${ failure() }
+        name: Send Slack message when the build fails
+        inputs:
+          message: 'This is a test message when build fails'
+
+    - eas/send_slack_message:
+        if: ${ success() }
+        name: Send Slack message when the build succeeds
+        inputs:
+          message: 'This is a test message when build succeeds'

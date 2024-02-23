@@ -73,6 +73,10 @@
       "ios": {
         "config": "remote-version-management-build-ios.yml"
       }
+    },
+    "sendSlackMessage": {
+      "withoutCredentials": true,
+      "config": "send-slack-message.yml"
     }
   }
 }
