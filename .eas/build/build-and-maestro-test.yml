@@ -1,5 +1,5 @@
 build:
-  name: Build and E2E test a development build
+  name: Build a development build and run Maestro tests on it
   steps:
     - eas/build
     

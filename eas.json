@@ -76,6 +76,10 @@
     "sendSlackMessage": {
       "withoutCredentials": true,
       "config": "send-slack-message.yml"
+    },
+    "buildAndMaestroTest": {
+      "withoutCredentials": true,
+      "config": "build-and-maestro-test.yml"
     }
   }
 }
