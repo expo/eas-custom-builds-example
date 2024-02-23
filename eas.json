@@ -55,13 +55,13 @@
     "developmentBuild": {
       "distribution": "internal",
       "android": {
-        "image": "ubuntu-22.04-jdk-11-ndk-r21e",
+        "image": "latest",
         "config": "development-build-android.yml"
       },
       "ios": {
         "simulator": true,
         "config": "development-build-ios.yml",
-        "image": "macos-ventura-13.4-xcode-14.3.1"
+        "image": "latest"
       }
     },
     "easUpdateBuild": {
