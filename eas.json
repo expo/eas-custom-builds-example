@@ -53,18 +53,6 @@
         "config": "production-and-development-builds-together-ios.yml"
       }
     },
-    "development-build-with-tests": {
-      "distribution": "internal",
-      "android": {
-        "image": "ubuntu-22.04-jdk-11-ndk-r21e",
-        "config": "android-emulator-build-with-maestro-tests.yml"
-      },
-      "ios": {
-        "simulator": true,
-        "config": "ios-simulator-build-with-maestro-tests.yml",
-        "image": "macos-ventura-13.4-xcode-14.3.1"
-      }
-    },
     "development-build": {
       "channel": "development",
       "distribution": "internal",
