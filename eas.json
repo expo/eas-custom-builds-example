@@ -32,19 +32,20 @@
       "withoutCredentials": true,
       "config": "import.yml"
     },
-    "customFunctions": {
+    "custom-functions": {
       "withoutCredentials": true,
       "config": "custom-functions.yml"
     },
-    "productionBuild": {
+    "production": {
+      "channel": "production",
       "android": {
-        "config": "production-build-android.yml"
+        "config": "android-build-with-credentials.yml"
       },
       "ios": {
-        "config": "production-build-ios.yml"
+        "config": "ios-build-with-credentials.yml"
       }
     },
-    "productionAndDevelopmentBuildsTogether": {
+    "production-and-development-builds-together": {
       "android": {
         "config": "production-and-development-builds-together-android.yml"
       },
@@ -52,41 +53,34 @@
         "config": "production-and-development-builds-together-ios.yml"
       }
     },
-    "developmentBuild": {
+    "development-build-with-tests": {
       "distribution": "internal",
       "android": {
         "image": "ubuntu-22.04-jdk-11-ndk-r21e",
-        "config": "development-build-android.yml"
+        "config": "android-emulator-build-with-maestro-tests.yml"
       },
       "ios": {
         "simulator": true,
-        "config": "development-build-ios.yml",
+        "config": "ios-simulator-build-with-maestro-tests.yml",
         "image": "macos-ventura-13.4-xcode-14.3.1"
       }
     },
-    "easUpdateBuild": {
-      "channel": "prod",
+    "development-build": {
+      "channel": "development",
+      "distribution": "internal",
       "android": {
-        "config": "eas-update-build-android.yml"
+        "config": "android-build-without-credentials.yml"
       },
       "ios": {
-        "config": "eas-update-build-ios.yml"
+        "simulator": true,
+        "config": "ios-simulator-build.yml"
       }
     },
-    "remoteVersionManagementBuild": {
-      "autoIncrement": true,
-      "android": {
-        "config": "remote-version-management-build-android.yml"
-      },
-      "ios": {
-        "config": "remote-version-management-build-ios.yml"
-      }
-    },
-    "sendSlackMessage": {
+    "send-slack-message": {
       "withoutCredentials": true,
       "config": "send-slack-message.yml"
     },
-    "buildAndMaestroTest": {
+    "build-and-maestro-test": {
       "withoutCredentials": true,
       "config": "build-and-maestro-test.yml",
       "android": {

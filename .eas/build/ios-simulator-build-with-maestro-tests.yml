@@ -1,32 +1,19 @@
 build:
-  name: Simple internal distribution Android build
+  name: iOS simulator build with Maestro tests
   steps:
-    - eas/checkout
-
-    - eas/install_node_modules
-
-    - eas/prebuild
-
-    - eas/run_gradle
-
-    - eas/find_and_upload_build_artifacts
-
-    - eas/run_gradle:
-        inputs:
-          command: ":app:assembleRelease"
+    - eas/build
 
     - eas/install_maestro:
         inputs:
           maestro_version: 1.35.0
 
-    - eas/start_android_emulator
+    - eas/start_ios_simulator
 
     - run:
         name: Install app to running simulator
         command: |
-          shopt -s globstar
-          for APP_PATH in android/app/build/outputs/**/*.apk; do
-            adb install $APP_PATH
+          for APP_PATH in ios/build/Build/Products/*simulator/*.app; do
+            xcrun simctl install booted $APP_PATH
           done
 
     - run:
@@ -41,4 +28,4 @@ build:
         if: ${ always() }
         inputs:
           type: build-artifact
-          path: /home/expo/.maestro/tests
+          path: /Users/expo/.maestro/tests
