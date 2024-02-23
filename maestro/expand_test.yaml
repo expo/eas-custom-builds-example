@@ -1,0 +1,5 @@
+appId: dev.expo.eascustombuildsexample
+---
+- launchApp
+- tapOn: "Expand"
+- assertVisible: "Additional information"
