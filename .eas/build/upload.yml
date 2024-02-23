@@ -2,12 +2,19 @@ build:
   name: Upload artifacts
   steps:
     - eas/checkout
+
     - eas/upload_artifact:
         name: Upload application archive
         inputs:
           path: fixtures/app-debug.apk
+
     - eas/upload_artifact:
         name: Upload build artifact
         inputs:
           type: build-artifact
-          path: assets/icon.png
+          # You can upload multiple assets
+          # by providing a multi-line path input.
+          # Also, glob patterns are allowed!
+          path: |
+            assets/*.png
+            assets/*.jpg
