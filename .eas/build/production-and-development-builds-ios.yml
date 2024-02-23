@@ -1,5 +1,5 @@
 build:
-  name: Customized iOS App Store build example
+  name: Build both a production and a development build (iOS)
   steps:
     # Uses build profile configuration by default
     # (App Store, production build in this case).

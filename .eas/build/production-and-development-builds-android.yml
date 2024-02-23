@@ -1,5 +1,5 @@
 build:
-  name: Customized Android Play Store build example
+  name: Build both a production and a development build (Android)
   steps:
     # Uses build profile configuration by default
     # (Play Store, production build in this case).

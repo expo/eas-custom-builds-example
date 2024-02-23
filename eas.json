@@ -36,12 +36,12 @@
       "withoutCredentials": true,
       "config": "custom-functions.yml"
     },
-    "productionBuild": {
+    "productionAndDevelopmentBuildsTogether": {
       "android": {
-        "config": "production-build-android.yml"
+        "config": "production-and-development-builds-together-android.yml"
       },
       "ios": {
-        "config": "production-build-ios.yml"
+        "config": "production-and-development-builds-together-ios.yml"
       }
     },
     "developmentBuild": {
