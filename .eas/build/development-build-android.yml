@@ -1,0 +1,44 @@
+build:
+  name: Simple internal distribution Android build
+  steps:
+    - eas/checkout
+
+    - eas/install_node_modules
+
+    - eas/prebuild
+
+    - eas/run_gradle
+
+    - eas/find_and_upload_build_artifacts
+
+    - eas/run_gradle:
+        inputs:
+          command: ":app:assembleRelease"
+
+    - eas/install_maestro:
+        inputs:
+          maestro_version: 1.35.0
+
+    - eas/start_android_emulator
+
+    - run:
+        name: Install app to running simulator
+        command: |
+          shopt -s globstar
+          for APP_PATH in android/app/build/outputs/**/*.apk; do
+            adb install $APP_PATH
+          done
+
+    - run:
+        name: Run Maestro
+        env:
+          MAESTRO_DRIVER_STARTUP_TIMEOUT: "120000"
+        command: |
+          maestro test maestro/flow.yaml
+
+    - eas/upload_artifact:
+        name: Upload test artifact
+        if: ${ always() }
+        inputs:
+          type: build-artifact
+          path: /home/expo/.maestro/tests
