@@ -17,11 +17,20 @@ build:
 
     - eas/send_slack_message:
         if: ${ always() }
-        name: Send Slack message when the build finishes
+        name: Send Slack message when the build finishes (Android)
         inputs:
           message: |
             This is a test message when build finishes
             Status: `${ steps.run_gradle.status_text }`
+            Link: `${ eas.job.expoBuildUrl }`
+
+    - eas/send_slack_message:
+        if: ${ always() }
+        name: Send Slack message when the build finishes (iOS)
+        inputs:
+          message: |
+            This is a test message when build finishes
+            Status: `${ steps.run_fastlane.status_text }`
             Link: `${ eas.job.expoBuildUrl }`
 
     - eas/send_slack_message:
