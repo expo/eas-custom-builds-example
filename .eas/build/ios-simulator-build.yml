@@ -21,6 +21,8 @@ build:
         working_directory: ./ios
         command: pod install
 
+    # if you are not using EAS Update you can remove this step from your config
+    # https://docs.expo.dev/eas-update/introduction/
     - eas/configure_eas_update:
         inputs:
           throw_if_not_configured: false
