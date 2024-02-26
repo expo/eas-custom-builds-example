@@ -22,13 +22,42 @@ build:
           slack_hook_url: ${ eas.env.ANOTHER_SLACK_HOOK_URL }
 
     - eas/send_slack_message:
-        if: ${ failure() }
-        name: Send Slack message when the build fails
+        if: ${ always() }
+        name: Send Slack message when the build finishes (Android)
         inputs:
-          message: 'This is a test message when build fails'
+          message: |
+            This is a test message when build finishes
+            Status: `${ steps.run_gradle.status_text }`
+            Link: `${ eas.job.expoBuildUrl }`
+
+    - eas/send_slack_message:
+        if: ${ always() }
+        name: Send Slack message when the build finishes (iOS)
+        inputs:
+          message: |
+            This is a test message when build finishes
+            Status: `${ steps.run_fastlane.status_text }`
+            Link: `${ eas.job.expoBuildUrl }`
+
+    - eas/send_slack_message:
+        if: ${ failure() }
+        name: Send Slack message when the build fails (Android)
+        inputs:
+          message: |
+            This is a test message when build fails
+            Error: `${ steps.run_gradle.error_text }`
+
+    - eas/send_slack_message:
+        if: ${ failure() }
+        name: Send Slack message when the build fails (iOS)
+        inputs:
+          message: |
+            This is a test message when build fails
+            Error: `${ steps.run_fastlane.error_text }`
 
     - eas/send_slack_message:
         if: ${ success() }
         name: Send Slack message when the build succeeds
         inputs:
-          message: 'This is a test message when build succeeds'
+          message: |
+            This is a test message when build succeeds
