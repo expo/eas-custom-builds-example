@@ -1,0 +1,19 @@
+build:
+  name: Build both a production and a development build (Android)
+  steps:
+    # Uses build profile configuration by default
+    # (Play Store, production build in this case).
+    - eas/build
+
+    # eas/build built and uploaded an AAB.
+    # We now run :assembleRelease to build an APK.
+    - run:
+        name: Build Android app for Emulator
+        working_directory: ./android
+        command: ./gradlew :app:assembleRelease
+
+    - eas/upload_artifact:
+        name: Upload Emulator app as build artifact
+        inputs:
+          type: build-artifact
+          path: android/app/build/outputs/**/*.apk

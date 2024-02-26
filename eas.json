@@ -32,51 +32,51 @@
       "withoutCredentials": true,
       "config": "import.yml"
     },
-    "customFunctions": {
+    "custom-functions": {
       "withoutCredentials": true,
       "config": "custom-functions.yml"
     },
-    "productionBuild": {
+    "production": {
+      "channel": "production",
       "android": {
-        "config": "production-build-android.yml"
+        "config": "android-build-with-credentials.yml"
       },
       "ios": {
-        "config": "production-build-ios.yml"
+        "config": "ios-build-with-credentials.yml"
       }
     },
-    "developmentBuild": {
+    "production-and-development-builds-together": {
+      "android": {
+        "config": "production-and-development-builds-together-android.yml"
+      },
+      "ios": {
+        "config": "production-and-development-builds-together-ios.yml"
+      }
+    },
+    "development-build": {
+      "channel": "development",
       "distribution": "internal",
       "android": {
-        "image": "ubuntu-22.04-jdk-11-ndk-r21e",
-        "config": "development-build-android.yml"
+        "config": "android-build-without-credentials.yml"
       },
       "ios": {
         "simulator": true,
-        "config": "development-build-ios.yml",
-        "image": "macos-ventura-13.4-xcode-14.3.1"
+        "config": "ios-simulator-build.yml"
       }
     },
-    "easUpdateBuild": {
-      "channel": "prod",
-      "android": {
-        "config": "eas-update-build-android.yml"
-      },
-      "ios": {
-        "config": "eas-update-build-ios.yml"
-      }
-    },
-    "remoteVersionManagementBuild": {
-      "autoIncrement": true,
-      "android": {
-        "config": "remote-version-management-build-android.yml"
-      },
-      "ios": {
-        "config": "remote-version-management-build-ios.yml"
-      }
-    },
-    "sendSlackMessage": {
+    "send-slack-message": {
       "withoutCredentials": true,
       "config": "send-slack-message.yml"
+    },
+    "build-and-maestro-test": {
+      "withoutCredentials": true,
+      "config": "build-and-maestro-test.yml",
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true
+      }
     }
   }
 }
