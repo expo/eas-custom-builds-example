@@ -12,6 +12,9 @@ build:
 
     - eas/checkout
 
+    # if you are not interested in using custom .npmrc config you can skip it
+    - eas/use_npm_token
+
     - eas/install_node_modules
 
     - eas/prebuild
