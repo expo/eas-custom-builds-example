@@ -61,3 +61,59 @@ build:
         inputs:
           message: |
             This is a test message when build succeeds
+
+    - eas/send_slack_message:
+        if: ${ always() }
+        name: Send Slack message with Slack Block Kit layout
+        inputs:
+          payload: {
+            "blocks": [{
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "Hello, Sir Developer\n\n *Your build has finished!*"
+                }
+              },
+              {
+                "type": "divider"
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*${ eas.env.EAS_BUILD_ID }*\n*Status:* `${ steps.run_gradle.status_text }`\n*Link:* `${ eas.job.expoBuildUrl }`"
+                },
+                "accessory": {
+                  "type": "image",
+                  "image_url": "https://static.expo.dev/static/brand/square-512x512.png",
+                  "alt_text": "alt text for image"
+                }
+              },
+              {
+                "type": "divider"
+              },
+              {
+                "type": "actions",
+                "elements": [
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "Do a thing :rocket:",
+                      "emoji": true
+                    },
+                    "value": "a_thing"
+                  },
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "Do another thing :x:",
+                      "emoji": true
+                    },
+                    "value": "another_thing"
+                  }
+                ]
+              }
+            ]
+          }
