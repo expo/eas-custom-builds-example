@@ -66,7 +66,8 @@
     },
     "send-slack-message": {
       "withoutCredentials": true,
-      "config": "send-slack-message.yml"
+      "config": "send-slack-message.yml",
+      "image": "latest"
     },
     "build-and-maestro-test": {
       "withoutCredentials": true,
