@@ -17,6 +17,8 @@ build:
 
     - eas/install_node_modules
 
+    - eas/resolve_build_config
+
     - eas/prebuild
 
     - run:
